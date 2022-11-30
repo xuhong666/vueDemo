@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    
+</body>
+ 
+<script>
+      //vue组件不能访问vue实例数据
+    //   组件对象也有一个data属性(也可以有methods属性)
+    //   只有这个data属性必须是一个函数
+    //   而且这个函数返回一个对象,对象内部保持数据
+     Vue.component('mycpn',{
+         template:"#cpn",
+         //这里data不能是对象类型
+         data:function(){
+           return{
+               message:"MMMMM"
+           }
+         }
+     })     
+    //  为什么组件data必须是函数?
+    //    创建组件的时候，会调用data函数，每次调用的时候我会创建一个新的函数data
+</script>
+</html>

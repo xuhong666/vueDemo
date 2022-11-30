@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+     <div id="app">
+        <button @click="filters">++</button>
+     </div>
+</body>
+ <script>
+     var  app =new Vue({
+          el:'#app',
+          data:{
+            nums:[1,2,3,4,5,6]
+          },
+          methods:{
+            // filter中的回调函数有一个要求,必须返回布尔值,当返回true时，函数内部会自动把n加入到新的数组值
+           // 当为false时,函数内部会自动过滤这次的n .map中的回调函数，返回的是当前这个的n,相当于遍历
+             filters(){
+                  let Total=0
+                  Total = this.nums.filter(function(n){
+                       return n <100
+                  }).map(function(n){
+                        return n*2
+                  }).reduce(function(pre,value){
+                       return pre+value
+                  })
+                  console.log("高阶函数",Total)
+                 //箭头函数 result =nums.filter(n=>n<100).map(n=n*2).reduce((pre,val)=>pre+val)
+            }
+        }
+     })
+ </script>
+ 
+</html>

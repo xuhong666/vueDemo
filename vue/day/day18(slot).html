@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn></cpn>
+        <!-- 第三次展示的时候，我希望用-进行分割 -->
+        <cpn>
+            <!-- 目的是获取子组件的planguages -->
+            <!-- 目的是通过template拿到data -->
+            <template slot-scope="slot">
+                <span v-for="item in slot.data">{{item}}</span>
+            </template>
+        </cpn>
+    </div>
+    
+    <template id="cpn">
+        <div>
+            <h2>我是组件</h2>
+            <slot :data="planguages">
+                <ul><li v-for="item in planguages">{{item}}</li></ul>
+            </slot>
+        </div>
+    </template>
+
+</body>
+<script>
+     const app =new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            cpn:{
+                template:'#cpn',
+                data(){
+                    return {
+                        planguages:['js','c','c++','java','c语言','go']
+                    }
+                }
+            }
+        }
+     })
+</script>
+</html>

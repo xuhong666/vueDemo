@@ -1,0 +1,22 @@
+<script>
+    //CommonJS(了解)
+    // 模块化核心:导入和导出
+// CommonJS的导出
+module.exports={
+    flag:true,
+    test(a,b){
+       return a+b
+    },
+    demo(a,b){
+       return a+b
+    }
+  }
+
+//CommonJS的导入
+let {test,demo,flag} =require('moduleA')
+// 等同于
+let  mA =require('moduleA')
+let  test =mA.test
+let  demo =mA.demo
+let  flag =mA.flag
+</script>

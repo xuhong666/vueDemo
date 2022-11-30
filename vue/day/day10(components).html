@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+      <!-- 
+        vue 组件化思想
+        它提供了一种抽象,让我们可以开发出一个独立可复用的小组件来构造我们的应用
+        任何的应用都会被抽象成一颗组件树
+       
+        组件化思想应用
+            进可能拆分成一个个小的,可复用的组件,我们的代码更加方便组织和管理,并且扩展性更强
+      
+        组件使用步骤
+          1.创建组件构造器
+          2.注册组件
+          3.使用组件 -->
+        <cpn></cpn>
+     </div>
+
+</body>
+   <script>
+       var app =new Vue({
+           el:'#app',
+           data:{
+           },
+           //局部组件直接挂载在vue实例下
+           component:{
+             cpn:cpnC
+           }
+       })
+
+        //  1. Vue.extend() 方法创建组件构造器
+            //  调用vue.extend() 创建的是一个组件构造器
+            //  通常在创建组件构造器时,传入template代表我们自定义组件的模板
+            //  该模板就是使用到组件的地方,要显示的html代码
+        //  2. Vue.component() 方法注册组件
+            // 调用vue.component()时将刚才的组件构造器注册为一个组件,并且给他起一个组件的标签名称
+            //所需要传递两个参数:1.注册组件的标签名 2,组件构造器
+            // 3.组件必须挂载在某一个vue实例下,否则他不会生效
+        
+       const cpnC =Vue.extend({
+           template:'<div><h2>我是标题</h2></div>'
+       })
+       //全部组件
+       Vue.component('my-cpn',cpnC)       
+   </script>
+ 
+</html>

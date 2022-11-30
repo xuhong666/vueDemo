@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycpn></mycpn>
+    </div>
+    <template id="cpn">
+         <div>
+         <h2>我是模板11111</h2>
+        </div>
+    </template>
+</body>
+ 
+<!-- 组件模板抽取出来 -->
+<!-- <script type="text/x-template"  id="cpn" >
+  <div>
+     <h2>我是标题{{message}}</h2>
+     <p>我是内容</p>
+  </div>
+</script> -->
+
+<script>
+   //全局组件注册
+   Vue.component('mycpn',{
+      template:"#cpn"
+   })
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message:"AAAA"
+        },
+    })
+</script>
+</html>

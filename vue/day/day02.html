@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+   <div id="app">
+         <!-- 过于繁琐 -->
+         <h2>{{fistName}}{{lastName}}</h2>
+          <!-- 定义methods函数，然后调用函数 -->
+         <h2>{{getFullName()}}</h2>
+         <!-- 计算属性,如果属性值没有发生变化，直接返回上次结果-->
+         <h2>{{fullName}}</h2>
+   </div> 
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好呀',
+            fistName:"Vina",
+            lastName:"liu"
+        },
+        methods:{
+            getFullName(){
+                 return this.fistName+""+this.lastName
+            }
+        },  
+        //计算属性有缓存作用
+        computed:{
+           //计算属性,我们尽量按照属性名起名字
+           fullName:function(){
+              return this.fistName+""+this.lastName
+           }
+        }
+
+
+    })
+</script>
+
+</html>

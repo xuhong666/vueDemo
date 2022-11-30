@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+           <!-- v-for 遍历数组 -->
+           <!-- 在循环的过程中没有使用到index索引 -->
+          <li  v-for="item in names">{{item}}</li>  
+           <!-- 获取索引-->
+          <li  v-for="(item,index) in names">{{index+1}}:{{item}}</li>
+
+           <!-- v-for 遍历对象 -->
+           <h1>遍历对象</h1>
+           <li v-for="item in info">{{item}}</li>
+            <!-- 获取key和value -->
+           <li v-for="(value,key) in info ">{{value}}-------{{key}}</li>
+            <!-- 获取key,value,index -->
+           <li v-for="(value,key,index) in info">{{index}}---{{value}}---{{key}}</li>
+        
+          <!-- 组件的key属性
+          官方推荐我们使用v-for的时候，给对应的元素添加key属性，目的是为了让我们更好的复用
+          所以key的主要最用就是为高效的更新虚拟DOM -->
+
+          <!-- 数组中哪些方法是响应式的
+            vue内部会监听数据变化，会根据新的数据重新渲染DOM -->
+            push,pop,unshift,shift,reverse,splice
+            <!-- splice的作用是删除元素，插入元素，修改元素 -->
+                splice(start)
+                this.letters.splice(1,2)
+                <!-- 如果不传则删除所有 -->
+                this.letters.splice(2)
+                <!-- 如果想要替换三个元素 -->
+                this.letters.splice(1,3,'1','2','3')
+                <!-- 新增元素，只要第二个元素为0 -->
+                this.letters.splice(1,0,'1','2','3')
+    </div> 
+</body>
+ <script>
+    var app =new Vue({
+       el:'#app',
+       data:{
+        names:['a','b','c','d','e','f'],
+        info:{name:"why",age:19,height:1.88}
+       }
+    })
+ </script>
+
+</html>

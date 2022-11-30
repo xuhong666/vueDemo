@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // 导航守卫解决：当我们从一个路由跳转到另一个路由的时候，beforeEach是一个函数，本身要求传入函数作为
+    // 参数，传入的函数有3个参数，from,to,next，next是必须调用的，当你从一个路由跳转到另一个路由的时候，
+    // 就会执行beforeEach，之后可以在路由中定义meta,元数据(描述数据的数据)，我们可以动态的通过ro,
+    // {
+    //   path:'',
+    //   redirect:'/home'
+    // },
+    // {
+    //     path:'/home',
+    //     comment:Home,
+    //     meta:{
+    //         title:'首页222'
+    //     },
+    //     //子路由不需要/，会自动加上去
+    //     children:[{
+    //         path:'',
+    //         redirect:'news'
+    //     },{
+    //         path:'news',
+    //         comment:HomeNews
+    //     }]
+    // }
+    //导航守卫补充    beforeEach() 是前置钩子，必须调用next()
+     router.beforeEach(function(to,from,next){
+       console.log("to",to)
+    //    document.title =to.meta.title
+        document.title =to.matched[0].meta.title
+        next()
+     })
+     //afterEach()是后置钩子，不需要主动调用next()函数
+     router.afterEach((to,from)=>{
+        console.log("++++++++",to,from)
+     })
+    //  上面是我们的导航守卫，我们称之为全局守卫
+    //  1.路由独享的守卫
+    //  2.组件内的守卫
+    
+    // 路由独享守卫
+    // 你可以在路由配置上直接定义beforeEnther守卫
+    // {
+    //     path:'/about',
+    //     Comment:()=>import('../components/About'),
+    //     meta:{ titl:'关于'},
+    //     beforeEnter:((to,from,next)=>{
+    //         console.log("路由独享守卫----",to，from)
+    //         next()
+    //     })
+    // }
+
+
+    //  vue 生命周期
+
+
+ 
+
+</script>
+</html>

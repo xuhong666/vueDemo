@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+     <!-- plugin是插件的意思，通常是对某个现有架构进行扩展
+     webpack中的插件，就是对webpack现有功能进行扩展，比如打包优化，文件压缩
+    
+     loader和plugin区别
+      loader主要用于转换某些类型的模块，他是一个转换器
+      plugin是插件，他是对webpack本身的扩展，是一个扩展器
+
+      plugin的使用过程
+      步骤一：通过npm安装需要使用的plugins(某些插件不需要安装，内置了)
+      步骤二: 在webpack.config.js中的plugin中配置插件
+
+      1.添加版权的plugin
+       该插件的名字叫做BannerPlugin,属于webpack自带插件
+       plugins:[ new webpack.BannerPlugin('版权归vina所有')]
+
+       webpack-HtmlWebpackPlugin的使用
+         目前，我们的index.html文件是存放在项目的根目录下的
+         我们知道在发布项目时，发布的时dist文件夹中的内容，但是dist文件夹中如果没有index.html文件
+      那么打包的js等文件也没有意义了。
+        所以，我们需要将index.html文件打包到dist中，这时候就需要用到HtmlWebpackPlugin插件了
+        
+       HtmlWebpackPlugin 可以为我们做什么？
+         自动生成一个index.html文件(可以指定模板来生成)
+         将打包的js文件，自动通过script标签插入到body中
+        
+         安装HtmlWebPackPlugin插件
+         npm i html-webpack-plugin@3 --save-dev
+         const HtmlWebPackplugin =require('html-webpack-plugin')
+         plugins:[new HtmlWebPackPlugin()],
+         此时打包路径就多余了
+
+        js的压缩Plugin的使用
+         在我们项目发布之前，我们必然需要对js等文件进行压缩处理
+          这里，我们就对打包的文件夹进行压缩
+          我们使用一个第三方的插件 uglifyjs-webpack-plugin,并且版本号指定1.1.1，和cli2保持一致
+          npm i unlifyjs-webpack-plugin@1.1.1 --save-dev
+          
+          修改webpack.config.js配置文件
+          const uglifyjswebpackPlugin=require('uglifyjs-webpack-plugin')
+          plugins:[new uglifyjswebpackPlugin()],
+    -->
+</body>
+</html>

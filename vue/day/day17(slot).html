@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <!-- 插槽slot 
+     为什么使用slot? 
+       让我们原来的设备具体扩展性，类似于电脑的usb,可以当做电源插槽,u盘,键盘,鼠标,音响等不通的设备 -->
+    <!-- 组件的插槽
+        也是为了让我们封装的组件更加具有扩展性 -->
+       <template  id="cpn" >
+            <div>
+                <h2>我是组件</h2>
+                <p>我是组件哈哈哈哈哈</p>
+                 <!-- 预留空间 -->
+                <slot></slot>
+            </div>
+       </template>
+       <!-- 如何封装合适呢？  抽取共性,保留不同 -->
+       <!-- 具名插槽 -->
+       <template id="cpn">
+          <div>
+              <h2>我是组件</h2>
+              <p>我是组件哈哈哈哈哈</p>
+              <!-- 具名插槽 -->
+              <slot name="left"><h2>左</h2></slot>
+              <slot name="center"><h2>中</h2></slot>
+              <slot name="right"><h2>右</h2></slot>
+          </div>
+       </template>
+     
+       <cpn>
+          <button slot="left">左边</button>
+          <span slot="center">我想替换中间</span>
+          <button slot="right">右边</button>
+       </cpn>
+      
+       <!-- 编译作用域
+       官方准则: 父组件模板中的所有东西都会在父级作用域内编译; 
+          子组件模板的所有东西都会在子级作用域内编译 -->
+        <div id="app">
+             <!-- 在实例中使用组件的时候，还是会去实例中寻找，而不是组件中 -->
+            <cpn v-show="isShow"></cpn>
+        </div>
+
+        <!-- 作用域插槽
+         总结：父组件替换插槽的标签，但是内容由子组件来提供 -->
+    
+</body>
+  
+<script>
+      
+
+
+</script>
+
+
+
+</html>

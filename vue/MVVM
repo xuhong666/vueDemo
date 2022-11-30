@@ -1,0 +1,7 @@
+view 依然是我们的Dom
+model 就是我们抽离出来的obj
+viewModel 就是我们创建的view实例
+
+工作原理
+   首先viewmodel通过Data Binding让obj的数据实时的在Dom中显示
+   其实viewmodel通过Dom Linstener来监听DOM事件，并且通过Methods中的操作，来改变obj的数据

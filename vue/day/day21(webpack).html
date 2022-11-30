@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+      <!-- webpack
+       内容概述
+       认识webpack
+        安装,起步，配置，使用，配置vue,plugin实验，搭建本地服务器 -->
+
+        <!-- webpack 是一个现代的javaScript应用的静态模块打包工具 -->
+        
+        <!-- 前端模块化 -->  
+        <!-- 前面我们学习了几种前端模块化的方案：AMD,CMD,CommonJS,Es6规范，原因是浏览器只支持ES6的规范
+     浏览器做了es6的底层支撑
+            但是在webpack中就能用到AMD,CMD,CommonJs 他会在打包的时候自动将代码进行转换，转换成大部分
+     浏览器都能识别的模块化。
+         在es6之前，我们想要进行模块化开发，就必须借助其他的工具，让我们可以进行模块化开发
+         并且通过模块化开发完成项目后，还需要处理各个模块之间的依赖
+        而webpack其中一个核心就是让我们进行模块化开发，并且他会帮助我们处理模块之间的依赖关系
+        而且不仅仅是js文件，我们的css,图片，json文件等等在webpack中都可以被当作模块来使用
+        这就是webpackz中模块化的思想
+
+       webpack 打包  就是将webpack中的各种资源进行打包合成一个或多个包
+       并且在打包过程中，还可以对资源进行处理，比如压缩图片，将scss转换成es5语法，将ts转换为js等等操作
+
+       webpack 和grunt/gulp比对
+        1.都可以打包
+        2.gulp的核心是Task         
+        3.如果你的工程依赖非常简单，甚至没有用到模块化的概念
+        只需要进行简单的合并，压缩，就使用grunt/glup
+        但是如果整个项目使用了模块化管理，而且相互依赖非常强，我们就需要用到最强大的工具webpack
+        4.grunt/glup 更加强调前端流程的自动化，模块化不是他的核心
+          webpack更加强调模块化开发管理，而文件压缩合并，预处理功能，是他附带的功能
+        
+          webpack和node和npm关系
+          webpack为了可以正常运行，必须依赖node环境
+          
+          node 环境为了可以正常执行很多代码，必须其中依赖各种包，手动管理太麻烦，所以安装node
+        的时候会自动安装npm工具，npm工具只是为了管理node各种包，npm(node packages manager)
+         
+        局部安装webpack
+        --save-dev 是开发时依赖，项目打包后不需要继续使用的
+        npm install webpack@3.6.0 --save-dev
+        webpack作用时打包出去包，只有在开发阶段才需要，打包完了webpack就没有用了
+
+        什么是loader
+        loader 是webpack 中的非常核心的概念
+        webpack 最主要用来做什么？
+          在我们之前的实例中，我们主要用webpack处理js代码，并且webpack会自动处理js之间相关的依赖。
+        但是，在开发中，我们不仅仅有基本的js代码处理。我们也需要加载css,图片也包括一些高级的将es6转换
+        成es5代码，将scss,less 转换成css,将jsx,vue文件转换成js文件等等，
+        对于webpack本身来说，对于这些转移时不支持的
+        那怎么办呢？
+        webpack扩展对应的loader就可以了
+        
+        loader使用过程
+         步骤一：通过npm安装需要使用的loader
+         步骤二：在webpack.config.js的modules关键字下进行配置
+         大部分的loader我们可以在webpack官网可以看到
+        
+         处理css的loader
+         文件加载必须依赖css-loader,style-loader,css-loader只负责将css文件进行加载，
+         style-loader负责样式添加到Dom,依赖这两个loader的时候，先使用css-loader,然后在使用style-loader.
+         但是因为webpack在读取use顺序的时候，时从右向左读取的，
+         所以书写的时候写成use:["style-loader","css-loader"]
+
+         webpack-less文件处理
+           首先，你需要安装less和less-loader;然后将该loader添加到webpack的配置中去
+         webpack-图片文件处理
+         npm install url-loader --save-dev
+         当加载的图片，小于limit时，会将图片编译成base64字符串形式
+         大于limit,必须加载file-loader,大于图片的时候运行报错
+         默认情况下webpack 会将生成的路径直接返回给使用者
+         但是，我们整个程序时打包在dist文件夹下的，所以我们需要在路径下添加一个dist/,则我们在output
+         中添加publicPath:'dist/'
+
+         webpack-es6语法处理
+         babel就是将es6转换成es5
+         babel也是一个loader
+    -->
+          
+    
+
+      
+    
+
+
+
+
+
+
+
+</body>
+</html>

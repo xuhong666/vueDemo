@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+     <!-- 父子组件通信-结合双向绑定事件 -->
+     <!-- 
+     父子组件的访问方式:$children 或$ref(reference:引用)
+     父组件访问子组件:使用$children或$ref(reference:引用)
+     子组件访问父组件使用$parent
+      
+     父访问子  this.children 开发中不常用，因为没法判断第几个children，而且可能this.children的长度会发生变化
+     只有我们需要拿到所有的子组件的时候，才会通过$children,
+        但是大多数想要拿到特定子组件，通过设置ref '<cpn ref="aaa">'
+    
+     子访问父
+       this.$parent 访问父组件
+       this.$root 访问根组件 -->
+</body>

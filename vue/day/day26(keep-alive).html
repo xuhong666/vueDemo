@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body> 
+    <!-- keep-alive是vue内置的一个组件，可以使被包含的组件保留状态，或者避免重新渲染
+    router-view 也是一个组件，如果直接被包在keep-alive里面，所有路径匹配到的组件都会被缓存
+    使用<keep-alive>的时候，组件不会被频繁的创建和销毁(可以排除一些组件)，被排除的组件还是会被频繁
+    创建和销毁
+                <keep-alive exclude="Profile,User">
+                    <router-view></router-view>
+                </keep-alive>
+    -->
+</body>
+ <script>
+    // 这两个函数只有该组件被保持了状态，使用keep-alive才是有效的
+    //  created(){
+    //      console.log("created")
+    //  },
+    //  destroyed(){
+    //     console.log("destroyed")
+    //  }
+ </script>
+
+
+</html>

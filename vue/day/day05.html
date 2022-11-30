@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- .prevent 阻止默认提交事件 -->
+        <form action="buidu">
+            <input type="text">
+            <input type="submit" value="提交" @click.prevent="submitClick">
+        </form>
+         
+        <!-- keyup 监听键盘点击事件 -->
+        <input type="text" @keyup="keyup">
+        <input type="text" @keyup.enter="keyup">
+        
+        <!-- .once 只触发一次 -->
+        <button @click.once ="onceClick">+</button>
+        
+        <!-- v-if 判断 -->
+        <h2  v-if ="score>90">优秀</h2>
+        <h2  v-else-if ="score>80">良好</h2>
+        <h2  v-else-if ="score>60">及格</h2>
+        <h2  v-else>不及格</h2>
+        
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+          incuutt:1,
+          score:80
+        },
+        methods: {
+            submitClick() {
+                console.log("阻止默认提交")
+            },
+            keyup() {
+                console.log(".keyup监听某个键盘的键帽")
+            },
+            onceClick(){
+                 console.log(this.incuutt++)
+            }
+        }
+    })
+</script>
+
+</html>
